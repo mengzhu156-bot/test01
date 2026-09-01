@@ -1,0 +1,75 @@
+.aurora-beam {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background: #030506;
+  pointer-events: none;
+}
+
+.aurora-beam__sheet {
+  position: absolute;
+  left: -22%;
+  width: 144%;
+  height: 48%;
+  border-radius: 50%;
+  mix-blend-mode: screen;
+  filter: blur(34px);
+  will-change: transform, opacity;
+}
+
+.aurora-beam__sheet--one {
+  top: 7%;
+  background: linear-gradient(90deg, transparent 4%, rgba(31, 183, 197, 0.12) 24%, rgba(153, 255, 196, 0.35) 50%, rgba(63, 191, 202, 0.12) 76%, transparent 96%);
+  animation: aurora-sweep-one 11s ease-in-out infinite alternate;
+}
+
+.aurora-beam__sheet--two {
+  top: 31%;
+  background: linear-gradient(90deg, transparent 8%, rgba(92, 160, 255, 0.09) 27%, rgba(223, 255, 244, 0.28) 52%, rgba(120, 255, 189, 0.16) 71%, transparent 94%);
+  filter: blur(48px);
+  animation: aurora-sweep-two 14s ease-in-out infinite alternate-reverse;
+}
+
+.aurora-beam__sheet--three {
+  top: 54%;
+  height: 34%;
+  background: linear-gradient(90deg, transparent 10%, rgba(75, 218, 223, 0.08) 28%, rgba(180, 255, 207, 0.2) 50%, rgba(78, 161, 217, 0.1) 72%, transparent 92%);
+  filter: blur(58px);
+  animation: aurora-sweep-three 17s ease-in-out infinite alternate;
+}
+
+.aurora-beam__glow {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 50% 46%, rgba(180, 255, 220, 0.16), transparent 32%),
+    linear-gradient(180deg, rgba(3, 5, 6, 0.18), rgba(3, 5, 6, 0.72));
+}
+
+.aurora-beam__grain {
+  position: absolute;
+  inset: 0;
+  opacity: 0.22;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.16) 0.6px, transparent 0.6px);
+  background-size: 5px 5px;
+  mask-image: linear-gradient(transparent, #000 28%, #000 72%, transparent);
+}
+
+@keyframes aurora-sweep-one {
+  from { transform: translate3d(-10%, -8%, 0) rotate(-7deg) scaleY(0.8); opacity: 0.55; }
+  to { transform: translate3d(9%, 12%, 0) rotate(6deg) scaleY(1.2); opacity: 1; }
+}
+
+@keyframes aurora-sweep-two {
+  from { transform: translate3d(12%, 10%, 0) rotate(8deg) scaleY(0.85); opacity: 0.42; }
+  to { transform: translate3d(-8%, -9%, 0) rotate(-5deg) scaleY(1.15); opacity: 0.9; }
+}
+
+@keyframes aurora-sweep-three {
+  from { transform: translate3d(-6%, 11%, 0) rotate(-4deg); opacity: 0.35; }
+  to { transform: translate3d(8%, -8%, 0) rotate(5deg); opacity: 0.75; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aurora-beam__sheet { animation: none; }
+}

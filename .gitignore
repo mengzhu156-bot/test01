@@ -1,0 +1,19 @@
+node_modules/
+dist/
+src/assets/hero_frames/
+.DS_Store
+npm-debug.log*
+
+# Local exports and working files (not needed to run the website)
+output/
+outputs/
+tmp/
+
+# GitHub's regular file-size limit (100 MB); keep these large source videos local
+src/assets/baolian-lamp.mp4
+src/assets/ceo-lottery.mp4
+src/assets/disease-era-clean.mp4
+src/assets/intestine-battle.mp4
+src/assets/lactic-acid-bacteria.mp4
+src/assets/rebirth-film.mov
+src/assets/underworld-king.mp4

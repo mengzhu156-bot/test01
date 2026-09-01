@@ -1,0 +1,239 @@
+.hero-carousel {
+  --hero-card-width: clamp(150px, 15vw, 246px);
+  --hero-card-gap: clamp(10px, 1.5vw, 24px);
+  --hero-card-active-height: clamp(250px, 30vw, 370px);
+  --hero-card-height: clamp(138px, 17vw, 210px);
+  position: relative;
+  min-height: 590px;
+  margin-top: 100px;
+  overflow: hidden;
+  border: 1px solid rgba(199, 255, 63, 0.36);
+  border-radius: 32px;
+  background: #07090c;
+  isolation: isolate;
+  outline: none;
+  box-shadow: 0 0 0 1px rgba(199, 255, 63, 0.08) inset, 0 0 34px rgba(199, 255, 63, 0.08);
+}
+
+.hero-carousel:focus-visible {
+  border-color: var(--cyan);
+  box-shadow: 0 0 0 2px rgba(120, 247, 255, 0.42), 0 0 40px rgba(120, 247, 255, 0.12);
+}
+
+.hero-carousel__backdrop,
+.hero-carousel__wash {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-carousel__backdrop {
+  filter: saturate(0.62) blur(1px);
+  transform: scale(1.04);
+}
+
+.hero-carousel__wash {
+  z-index: -1;
+  background:
+    linear-gradient(180deg, rgba(4, 6, 8, 0.76) 0%, rgba(4, 6, 8, 0.2) 38%, rgba(4, 6, 8, 0.84) 100%),
+    radial-gradient(circle at 50% 44%, rgba(199, 255, 63, 0.1), transparent 58%);
+}
+
+.hero-carousel__topline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 28px;
+  color: rgba(244, 247, 245, 0.62);
+  font-family: Inter, sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.hero-carousel__topline span:first-child {
+  color: var(--green);
+}
+
+.hero-carousel__intro {
+  display: grid;
+  gap: 10px;
+  width: min(680px, calc(100% - 56px));
+  margin: 42px auto 0;
+  text-align: center;
+}
+
+.hero-carousel__intro p {
+  margin: 0;
+  color: var(--cyan);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+}
+
+.hero-carousel__intro h3 {
+  margin: 0;
+  color: #fff;
+  font-size: clamp(30px, 4vw, 58px);
+  font-weight: 600;
+  line-height: 1;
+}
+
+.hero-carousel__intro > span {
+  color: rgba(244, 247, 245, 0.66);
+  font-size: 14px;
+}
+
+.hero-carousel__stage {
+  position: absolute;
+  top: 192px;
+  right: 0;
+  left: 0;
+  height: var(--hero-card-active-height);
+  overflow: hidden;
+}
+
+.hero-carousel__track {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  display: flex;
+  align-items: flex-start;
+  gap: var(--hero-card-gap);
+  width: max-content;
+  margin-left: calc(var(--hero-card-width) / -2);
+  touch-action: pan-y;
+  cursor: grab;
+}
+
+.hero-carousel__track:active {
+  cursor: grabbing;
+}
+
+.hero-carousel__card {
+  position: relative;
+  display: block;
+  flex: 0 0 var(--hero-card-width);
+  overflow: hidden;
+  padding: 0;
+  border: 1px solid rgba(244, 247, 245, 0.18);
+  border-radius: 20px;
+  background: rgba(9, 11, 14, 0.76);
+  cursor: pointer;
+  opacity: 0.72;
+  transition: border-color 240ms ease, opacity 240ms ease, box-shadow 240ms ease;
+}
+
+.hero-carousel__card:hover,
+.hero-carousel__card:focus-visible,
+.hero-carousel__card.is-active {
+  border-color: rgba(199, 255, 63, 0.78);
+  opacity: 1;
+  box-shadow: 0 0 0 1px rgba(199, 255, 63, 0.16) inset, 0 0 26px rgba(199, 255, 63, 0.18);
+}
+
+.hero-carousel__card:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 4px;
+}
+
+.hero-carousel__card img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: saturate(0.75);
+  transition: filter 500ms ease, transform 700ms ease;
+}
+
+.hero-carousel__card:hover img,
+.hero-carousel__card.is-active img {
+  filter: saturate(1);
+  transform: scale(1.025);
+}
+
+.hero-carousel__card-index {
+  position: absolute;
+  right: 12px;
+  bottom: 10px;
+  color: rgba(255, 255, 255, 0.78);
+  font-family: Inter, sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+}
+
+.hero-carousel__controls {
+  position: absolute;
+  right: 28px;
+  bottom: 23px;
+  left: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.hero-carousel__controls > button {
+  display: grid;
+  width: 40px;
+  height: 40px;
+  place-items: center;
+  border: 1px solid rgba(244, 247, 245, 0.26);
+  border-radius: 50%;
+  background: rgba(5, 6, 8, 0.28);
+  color: #fff;
+  font-size: 19px;
+  cursor: pointer;
+  transition: border-color 180ms ease, background 180ms ease, transform 180ms ease;
+}
+
+.hero-carousel__controls > button:hover,
+.hero-carousel__controls > button:focus-visible {
+  border-color: var(--green);
+  background: rgba(199, 255, 63, 0.1);
+  transform: translateY(-2px);
+}
+
+.hero-carousel__controls > button:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 3px;
+}
+
+.hero-carousel__dots {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hero-carousel__dots button {
+  width: 7px;
+  height: 7px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(244, 247, 245, 0.34);
+  cursor: pointer;
+  transition: width 180ms ease, border-radius 180ms ease, background 180ms ease;
+}
+
+.hero-carousel__dots button.is-active {
+  width: 28px;
+  border-radius: 999px;
+  background: var(--green);
+}
+
+@media (max-width: 1280px) {
+  .hero-carousel {
+    min-height: 560px;
+    --hero-card-active-height: 320px;
+    --hero-card-height: 168px;
+  }
+
+  .hero-carousel__stage {
+    top: 188px;
+  }
+}
