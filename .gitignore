@@ -17,3 +17,6 @@ src/assets/intestine-battle.mp4
 src/assets/lactic-acid-bacteria.mp4
 src/assets/rebirth-film.mov
 src/assets/underworld-king.mp4
+# All portfolio videos are served from external storage; keep local copies out
+# of future commits even when a new video is added.
+src/assets/*.mp4

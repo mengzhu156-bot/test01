@@ -46,20 +46,12 @@ import visualArchive03 from './assets/visual-archive-hi-03.jpg';
 import visualArchive04 from './assets/visual-archive-hi-04.jpg';
 import visualArchive05 from './assets/visual-archive-hi-05.jpg';
 import rebirthCover from './assets/rebirth-cover.png';
-import baolianLampVideo from './assets/baolian-lamp.mp4';
-import intestineBattleVideo from './assets/intestine-battle.mp4';
-import diseaseEraVideo from './assets/disease-era-clean.mp4';
-import underworldKingVideo from './assets/underworld-king.mp4';
-import ceoLotteryVideo from './assets/ceo-lottery.mp4';
 import rebirthPoster from './assets/rebirth-poster.png';
 import rebirthAwardPoster from './assets/rebirth-award-poster.png';
 import rebirthFrame02 from './assets/frame-02.png';
-import rebirthFeatureVideo from './assets/rebirth-film.mp4';
 import rebirthGridOne from './assets/rebirth-grid-1.png';
 import rebirthGridTwo from './assets/rebirth-grid-2.png';
-import smartWardrobeVideo from './assets/smart-wardrobe-web.mp4';
-import smartMirrorVideo from './assets/smart-mirror-web.mp4';
-import smartStoreVideo from './assets/smart-store-web.mp4';
+import { videoUrls } from './videoUrls';
 import rebirthGridThree from './assets/rebirth-grid-3.png';
 import rebirthBoard07 from './assets/rebirth-portfolio-07.png';
 import rebirthBoard08 from './assets/rebirth-portfolio-08.png';
@@ -80,7 +72,7 @@ import rebirthFrame05 from './assets/rebirth-frame-05.png';
 import gsap from 'gsap';
 
 const cinematicHeroVideo =
-  'https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260510_060007_60275ce7-030c-4668-a160-8f364ec537d3.mp4';
+  videoUrls.cinematicHero;
 
 const stats = [
   { value: '15+', label: 'AIGC影像项目' },
@@ -96,7 +88,7 @@ const projects = [
     year: '2025｜63集',
     splitMeta: true,
     image: projectDaiyu,
-    video: diseaseEraVideo,
+    video: videoUrls.diseaseEra,
     tags: ['AIGC', '漫剧', 'Visual Direction'],
     desc: '负责剧本拆解、角色与场景设定、AI镜头生成、素材筛选及成片视觉审核。项目上线红果平台后，平台热度突破2000万。',
   },
@@ -105,7 +97,7 @@ const projects = [
     role: 'AIGC 漫剧 / 视觉设计',
     year: '2026',
     image: rebirthCover,
-    video: intestineBattleVideo,
+    video: videoUrls.intestineBattle,
     tags: ['AIGC', '漫剧', 'Visual Direction'],
     desc: 'AIGC 漫剧视觉作品，围绕微观世界中的乳酸菌群展开奇幻叙事。',
   },
@@ -114,7 +106,7 @@ const projects = [
     role: 'AIGC 漫剧 / 视觉设计',
     year: '2026',
     image: rebirthCover,
-    video: baolianLampVideo,
+    video: videoUrls.baolianLamp,
     tags: ['AIGC', '漫剧', 'Visual Direction'],
     desc:
       'AIGC 漫剧视觉作品，以宝莲灯为主题展开东方奇幻叙事。',
@@ -124,7 +116,7 @@ const projects = [
     role: 'AIGC漫剧/美术设计·视频制作',
     year: '2025',
     image: projectGenesis,
-    video: underworldKingVideo,
+    video: videoUrls.underworldKing,
     tags: ['AIGC', '漫剧', 'Visual Direction'],
     desc:
       'AIGC 漫剧视觉作品，以地府世界为背景展开奇幻叙事。',
@@ -134,7 +126,7 @@ const projects = [
     role: 'AIGC漫剧/美术设计·视频制作',
     year: '2025',
     image: rebirthCover,
-    video: ceoLotteryVideo,
+    video: videoUrls.ceoLottery,
     tags: ['AIGC', '漫剧', 'Visual Direction'],
     desc: 'AIGC 漫剧视觉作品，围绕霸总题材展开轻松有趣的故事表达。',
   },
@@ -591,9 +583,9 @@ function PracticeDetail({ item }) {
   if (!item) return null;
   if (item.slug === 'exhibition') return <ExhibitionDetail item={item} />;
   const commercialVideos = [
-    { title: 'SMART WARDROBE', label: '智能衣橱', src: smartWardrobeVideo },
-    { title: 'SMART MIRROR', label: '智能镜', src: smartMirrorVideo },
-    { title: 'SMART STORE', label: '智能门店', src: smartStoreVideo },
+    { title: 'SMART WARDROBE', label: '智能衣橱', src: videoUrls.smartWardrobe },
+    { title: 'SMART MIRROR', label: '智能镜', src: videoUrls.smartMirror },
+    { title: 'SMART STORE', label: '智能门店', src: videoUrls.smartStore },
   ];
   return (
     <main className="practice-detail">
@@ -803,7 +795,7 @@ function VisualStory() {
           <video
             ref={videoRef}
             className="visual-story__video"
-            src={rebirthFeatureVideo}
+            src={videoUrls.rebirthFilm}
             poster={rebirthFrame02}
             muted
             playsInline
@@ -853,7 +845,7 @@ function RebirthDetail() {
         <div className="detail-hero__synopsis"><p className="section-kicker">SYNOPSIS</p><p>{synopsis}</p></div>
         <button className="detail-hero__play" type="button" onClick={() => setPlaying(true)} aria-label="播放《重生》预览"><Play size={24} fill="currentColor" /><span>PLAY FILM</span></button>
       </section>
-      {playing ? <div className="rebirth-video-modal" role="dialog" aria-modal="true" aria-label="《重生》影片预览"><button type="button" className="rebirth-video-modal__backdrop" onClick={() => setPlaying(false)} aria-label="关闭视频" /><div className="rebirth-video-modal__dialog"><button type="button" className="rebirth-video-modal__close" onClick={() => setPlaying(false)} aria-label="关闭视频">×</button><video src={rebirthFeatureVideo} controls autoPlay playsInline /></div></div> : null}
+      {playing ? <div className="rebirth-video-modal" role="dialog" aria-modal="true" aria-label="《重生》影片预览"><button type="button" className="rebirth-video-modal__backdrop" onClick={() => setPlaying(false)} aria-label="关闭视频" /><div className="rebirth-video-modal__dialog"><button type="button" className="rebirth-video-modal__close" onClick={() => setPlaying(false)} aria-label="关闭视频">×</button><video src={videoUrls.rebirthFilm} controls autoPlay playsInline /></div></div> : null}
       <ParallaxStills />
       <section className="detail-intro shell">
         <div className="rebirth-facts" aria-label="项目制作信息">
