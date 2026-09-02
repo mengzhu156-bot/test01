@@ -1225,6 +1225,16 @@ p {
 @media (max-width: 900px) { .ecology-project-focus { grid-template-columns: 1fr; } }
 @media (max-width: 640px) { .ecology-project-focus-gallery { grid-template-columns: 1fr; } }
 .practice-detail__body--commercial { display: block; }
+
+.sanjing-design { margin-top: 88px; padding-top: 36px; border-top: 1px solid rgba(199,214,222,.2); }
+.sanjing-design__heading { display:flex; align-items:baseline; justify-content:space-between; gap:24px; margin-bottom:28px; }
+.sanjing-design__heading span { color: var(--green); font-size:12px; letter-spacing:.18em; }
+.sanjing-design__heading p { margin:0; color:rgba(244,247,245,.58); font-size:14px; }
+.sanjing-design__grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; }
+.sanjing-design__grid figure { margin:0; overflow:hidden; border:1px solid rgba(199,214,222,.16); background:#fff; }
+.sanjing-design__grid img { display:block; width:100%; height:auto; }
+@media (max-width:900px) { .sanjing-design__grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media (max-width:600px) { .sanjing-design { margin-top:60px; } .sanjing-design__heading { display:block; } .sanjing-design__heading p { margin-top:10px; } .sanjing-design__grid { grid-template-columns:1fr; gap:14px; } }
 .practice-detail__body--commercial > div:first-child { margin-bottom: 3rem; }
 .scroll-stack { position: relative; width: 50%; min-height: 720px; padding-top: 34px; }
 .scroll-stack > .section-kicker { position: absolute; top: 0; left: 0; }
@@ -2629,9 +2639,46 @@ p {
 }
 
 @media (max-width: 600px) {
+  .site-header {
+    padding: 16px 14px;
+    gap: 12px;
+  }
+
+  .wordmark {
+    flex: 0 0 auto;
+    font-size: 15px;
+  }
+
+  /* Keep the primary navigation accessible on phones without forcing a
+     second menu interaction. The links become compact and can scroll
+     horizontally on especially narrow screens. */
+  .site-header nav {
+    display: flex;
+    flex: 1 1 auto;
+    justify-content: flex-end;
+    gap: 0;
+    max-width: calc(100vw - 120px);
+    overflow-x: auto;
+    scrollbar-width: none;
+    padding: 3px;
+  }
+
+  .site-header nav::-webkit-scrollbar { display: none; }
+
+  .site-header nav a {
+    min-width: auto;
+    min-height: 34px;
+    flex: 0 0 auto;
+    padding: 0 8px;
+    font-size: 9px;
+    letter-spacing: .06em;
+  }
+
+  .site-header nav a:nth-child(3) { display: none; }
+
   .section {
-    padding-top: 84px;
-    padding-bottom: 84px;
+    padding-top: 72px;
+    padding-bottom: 72px;
   }
 
   .shell {
@@ -2644,7 +2691,16 @@ p {
 
   .hero-copy {
     font-size: 15px;
+    line-height: 1.65;
   }
+
+  .hero-headline h1 { font-size: clamp(38px, 14vw, 64px); line-height: .98; }
+  .hero-headline { top: 100px; width: calc(100% - 36px); }
+  .hero-bottom-block { right: 14px; bottom: 24px; left: 14px; width: auto; }
+  .hero-actions,
+  .contact-actions { gap: 10px; }
+  .hero-actions a,
+  .contact-actions a { width: 100%; }
 
   .contact-row,
   .stats-grid {
@@ -2712,6 +2768,9 @@ p {
     border-radius: 18px;
   }
 
+  .video-dialog video,
+  .rebirth-video-modal__dialog video { max-height: 78vh; object-fit: contain; }
+
   .exhibition-mask__copy h1 {
     font-size: clamp(60px, 22vw, 94px);
   }
@@ -2732,4 +2791,52 @@ p {
   .rebirth-facts strong {
     font-size: 15px;
   }
+}
+
+/* Detail pages: keep role / timeline / responsibilities readable on phones. */
+@media (max-width: 600px) {
+  .detail-header { padding: 18px 14px; }
+  .detail-header .wordmark { font-size: 14px; }
+  .detail-back { font-size: 11px; gap: 4px; }
+  .practice-detail__hero { min-height: 78vh; }
+  .practice-detail__hero > img { min-height: 78vh; object-position: center; }
+  .practice-detail__hero-copy { right: 18px; bottom: 28px; left: 18px; }
+  .practice-detail__hero-copy h1 { margin-bottom: 14px; font-size: clamp(42px, 14vw, 72px); line-height: 1; }
+  .practice-detail__hero-copy > p:last-child { font-size: 15px; line-height: 1.7; }
+  .practice-detail__body { padding-top: 62px; padding-bottom: 84px; }
+  .practice-detail__body > div:first-child h2 { font-size: clamp(30px, 9vw, 46px); line-height: 1.15; }
+  .practice-detail__body--commercial > div:first-child { margin-bottom: 2rem; }
+  .commercial-breakdown { gap: 1.8rem; }
+  .scroll-stack__card { height: min(300px, 78vw); }
+  .scroll-stack__card > div { right: .8rem; bottom: .8rem; left: .8rem; gap: .45rem; flex-wrap: wrap; }
+  .scroll-stack__card strong { font-size: .9rem; }
+  .scroll-stack__card em { width: 100%; margin-left: 0; font-size: .75rem; }
+  .commercial-flow { gap: .45rem; font-size: .68rem; line-height: 1.3; }
+  .commercial-flow span { padding: .5rem .6rem; }
+  .commercial-flow b { display: none; }
+  .commercial-scenes { gap: .8rem; }
+  .commercial-scenes article { padding: 1rem; }
+  .commercial-scenes h3 { font-size: 1.05rem; }
+  .commercial-scenes p:last-child { font-size: .88rem; line-height: 1.75; }
+  .project-facts { margin-top: 34px; }
+  .project-facts > div,
+  .ecology-project-focus .project-facts > div { grid-template-columns: 1fr; gap: 8px; padding: 18px 0; }
+  .project-facts span { font-size: 11px; }
+  .project-facts strong { font-size: 15px; line-height: 1.75; overflow-wrap: anywhere; }
+  .exhibition-gallery { padding-top: 54px; }
+  .exhibition-gallery__stage { min-height: 52vh; }
+  .exhibition-detail__rows { margin-top: 36px; }
+  .exhibition-detail__row { grid-template-columns: 1fr; gap: 8px; padding: 20px 0; }
+  .exhibition-detail__row > strong { font-size: 13px; }
+  .exhibition-detail__row p,
+  .exhibition-detail__content { font-size: 15px; line-height: 1.8; }
+  .exhibition-detail__content ol { padding-left: 1.25rem; }
+}
+
+@media (max-width: 380px) {
+  .site-header nav { max-width: calc(100vw - 104px); }
+  .site-header nav a { padding: 0 6px; font-size: 8px; }
+  .shell { width: calc(100% - 24px); }
+  .project-card,
+  .project-card.featured { min-height: 112vw; }
 }

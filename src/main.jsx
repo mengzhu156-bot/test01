@@ -23,10 +23,26 @@ import installationImage from './assets/profile-installation.jpg';
 import ecologyFestivalImage from './assets/ecology-festival.jpg';
 import ecologyAerialImage from './assets/ecology-aerial.png';
 import ecologyRenderImage from './assets/ecology-render.png';
+import sanjingDesign01 from './assets/sanjing-design-01.jpg';
+import sanjingDesign02 from './assets/sanjing-design-02.jpg';
+import sanjingDesign03 from './assets/sanjing-design-03.jpg';
+import sanjingDesign04 from './assets/sanjing-design-04.jpg';
+import sanjingDesign05 from './assets/sanjing-design-05.jpg';
+import sanjingDesign06 from './assets/sanjing-design-06.jpg';
+import sanjingDesign07 from './assets/sanjing-design-07.jpg';
+import sanjingDesign08 from './assets/sanjing-design-08.jpg';
+import sanjingDesign09 from './assets/sanjing-design-09.jpg';
+import sanjingDesign10 from './assets/sanjing-design-10.jpg';
+import sanjingDesign11 from './assets/sanjing-design-11.jpg';
+import sanjingDesign12 from './assets/sanjing-design-12.jpg';
+import sanjingDesign13 from './assets/sanjing-design-13.jpg';
+import sanjingDesign14 from './assets/sanjing-design-14.jpg';
+import sanjingDesign15 from './assets/sanjing-design-15.jpg';
+import sanjingDesign16 from './assets/sanjing-design-16.jpg';
+import sanjingDesign17 from './assets/sanjing-design-17.jpg';
+import sanjingDesign18 from './assets/sanjing-design-18.jpg';
+import sanjingDesign20 from './assets/sanjing-design-20.jpg';
 import scaffoldDimensionsImage from './assets/scaffold-dimensions.png';
-import ecologyProjectSitePlan from './assets/ecology-project-site-plan.png';
-import ecologyScaffoldDetails from './assets/ecology-scaffold-details.png';
-import ecologyGraphicDesign from './assets/ecology-graphic-design.png';
 import exhibitionScrollMaskImage from './assets/exhibition-scroll-mask.jpg';
 import daiyuExhibition01 from './assets/daiyu-exhibition-01.jpg';
 import daiyuExhibition02 from './assets/daiyu-exhibition-02.jpg';
@@ -262,6 +278,14 @@ const recognitions = [
   { year: '2025', title: '《和合共生》获中保青少年非遗创作展金奖' },
   { year: '2024', title: '《HOPE》入围大学生AI艺术季' },
   { year: '2023', title: '《黛玉葬花》入选文旅数字化创新示范“十佳案例”' },
+];
+
+const sanjingDesignImages = [
+  sanjingDesign20, sanjingDesign17, sanjingDesign15, sanjingDesign01,
+  sanjingDesign16, sanjingDesign02, sanjingDesign03, sanjingDesign04,
+  sanjingDesign05, sanjingDesign06, sanjingDesign07, sanjingDesign08,
+  sanjingDesign09, sanjingDesign10, sanjingDesign11, sanjingDesign12,
+  sanjingDesign13, sanjingDesign14, sanjingDesign18,
 ];
 
 function Nav() {
@@ -626,13 +650,9 @@ function PracticeDetail({ item }) {
               <figure><img src={ecologyRenderImage} alt="生态艺术节展览空间渲染图" /><figcaption>Spatial Rendering / 空间渲染</figcaption></figure>
               <figure><img src={scaffoldDimensionsImage} alt="脚手架尺寸与节点图" /><figcaption>Scaffold System / 尺寸与节点</figcaption></figure>
             </div>
-            <div className="project-facts"><div><span>项目角色</span><strong>策划设计 / 展览视觉 / 空间执行</strong></div><div><span>制作周期</span><strong>2024.03 – 2024.05（从策划到现场落地）</strong></div><div><span>具体负责内容</span><strong>从0到1参与摄影展策划，完成主题梳理、视觉方向、空间建模、展签与展板物料设计，并参与现场布置与执行协调。</strong></div><div><span>项目结果</span><strong>项目累计吸引10万+观众，获得10+媒体报道，宣传触达数十万级。</strong></div></div>
             <div className="ecology-project-statement"><span>项目阐述 / SITE DIALOGUE</span><p>蠡湖本身就是无锡重要的自然生态系统和城市景观水体。将摄影作品置于湖边，让作品内容与其所处的真实环境形成直接的、沉浸式的对话。观众在观看照片的同时，抬眼或转身就能看到真实的蠡湖风光，这种实景对照能极大地强化作品的感染力，使“三境”中的“自然之境”变得触手可及。</p></div>
-            <div className="ecology-project-focus-gallery" aria-label="生态艺术节补充设计资料">
-              <figure><img src={ecologyProjectSitePlan} alt="生态艺术节场地总平面图" /><figcaption>Site Plan / 场地总平面</figcaption></figure>
-              <figure><img src={ecologyScaffoldDetails} alt="展览脚手架结构与尺寸细节" /><figcaption>Scaffold Details / 结构与尺寸</figcaption></figure>
-              <figure><img src={ecologyGraphicDesign} alt="生态艺术节图文视觉设计" /><figcaption>Graphic System / 图文设计</figcaption></figure>
-            </div>
+            <div className="project-facts"><div><span>项目角色</span><strong>策划设计 / 展览视觉 / 空间执行</strong></div><div><span>制作周期</span><strong>2024.03 – 2024.05（从策划到现场落地）</strong></div><div><span>具体负责内容</span><strong>从0到1参与摄影展策划，完成主题梳理、视觉方向、空间建模、展签与展板物料设计，并参与现场布置与执行协调。</strong></div><div><span>项目结果</span><strong>项目累计吸引10万+观众，获得10+媒体报道，宣传触达数十万级。</strong></div></div>
+            <section className="sanjing-design" aria-label="行走三境摄影图文展设计稿"><div className="sanjing-design__heading"><span>图文设计 / GRAPHIC DESIGN</span><p>摄影图文展视觉系统与作品编排</p></div><div className="sanjing-design__grid">{sanjingDesignImages.map((image, index) => <figure key={image}><img src={image} alt={`行走三境图文设计稿 ${index + 1}`} loading="lazy" /></figure>)}</div></section>
           </div>
         ) : <p>从前期洞察、概念设定到视觉执行，建立清晰、统一并可落地的内容体验。</p>}
       </section>
