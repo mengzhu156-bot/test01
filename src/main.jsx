@@ -188,12 +188,10 @@ const workExperiences = [
     company: '灵漫艺创科技（上海）有限公司',
     role: 'AI视频制作专员 / 漫剧AI美术主导',
     time: '2025.08 – 2026.03',
-    intro: '负责多个平台漫剧项目的AI视觉开发与视频制作，根据剧本拆解场次、人物、情绪及镜头需求，完成角色、场景和视觉风格设定。',
+    intro: '负责漫剧项目 AI 视觉开发与视频制作，拆解剧本完成角色、场景及视觉风格设定，运用多模型协同工作流完成 AI 镜头生成与动态制作，解决角色漂移与场景连续性问题。',
     bullets: [
-      '运用多模型协同工作流完成AI镜头生成、素材筛选与动态制作，解决角色漂移、场景连续性及视觉风格统一问题。',
-      '负责成片视觉质量审核与版本反馈，对构图、表演、镜头衔接、节奏及画面一致性进行把控。',
-      '代表作63集《病变纪元之下我无敌》上线红果平台后热度突破2000万。',
-      '沉淀可复用的角色、场景和视觉风格资产，形成镜头生成、问题修正与成片审核流程。',
+      '主导 63 集漫剧《病变纪元之下我无敌》视觉全流程，上线红果平台热度突破 2000 万；沉淀可复用的角色场景资产与成片审核标准流程。',
+      '参与《倾城阁主》、《人间痴圣》等 8 部 AIGC 漫剧及仿真人剧的视觉制作，覆盖角色设定、场景生成、镜头制作与成片审核，累计输出数千个 AI 镜头。',
     ],
   },
   {
@@ -370,8 +368,8 @@ function Hero() {
         </div>
         <div className="hero-bottom-block">
           <p className="hero-copy">
-            <span>AI视觉设计师 · 内容创意策划。</span>
-            以导演思维统筹视觉创意与影像表达，融合AI生成、视觉开发与空间设计经验，贯通从概念、剧本分镜到镜头生成、剪辑与成片的完整创作流程。
+            <span>跨界 AI 视觉与内容策划，</span>
+            以导演思维贯通创意、生成与剪辑全流程。
           </p>
           <SpecularButton size="lg" radius={999} href="#projects" className="hero-cta">
             View selected works
@@ -437,7 +435,7 @@ function About() {
             <p className="section-kicker">Work Experience</p>
             <h2 id="work-experience-title">工作经历</h2>
           </div>
-          <p className="career-summary">近五年间，我从跨境市场与品牌商品企划出发，逐步进入展览策划、空间视觉与 AIGC 影像制作领域。跨领域经验让我能够同时理解市场需求、视觉表达与制作执行，将创意转化为具有审美、可传播并能够落地的视觉内容。</p>
+          <p className="career-summary">近五年从品牌商品企划切入，逐步转向展览策划、空间视觉与 AIGC 影像制作，兼具市场洞察、视觉表达与落地执行能力。</p>
           <div className="resume-list">
             {workExperiences.map((item, index) => (
               <article className="resume-entry" key={`${item.company}-${item.time}`}>
@@ -445,7 +443,7 @@ function About() {
                 <div className="resume-entry__main">
                   <div className="resume-entry__title"><h3>{item.company}</h3><time>{item.time}</time></div>
                   <p className="resume-entry__role">{item.role}</p>
-                  <p>{item.intro}</p>
+                  {item.intro ? <p>{item.intro}</p> : null}
                   {item.bullets ? <ul>{item.bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}</ul> : null}
                 </div>
               </article>
@@ -721,6 +719,11 @@ function ExhibitionDetail({ item }) {
           <button type="button" aria-label="下一张图片" onClick={() => setGalleryIndex((galleryIndex + 1) % galleryImages.length)}>→</button>
         </div>
         <div className="exhibition-gallery__dots">{galleryImages.map((_, index) => <button key={index} type="button" aria-label={`查看第 ${index + 1} 张图片`} className={index === galleryIndex ? 'is-active' : ''} onClick={() => setGalleryIndex(index)} />)}</div>
+      </section>
+      <section className="exhibition-project-intro shell">
+        <p className="section-kicker">项目阐述 / PROJECT STATEMENT</p>
+        <p>沉浸式戏曲《黛玉葬花》以越剧经典文本为基础，融合 XR、VR、动作捕捉与数字孪生技术，将演员表演、虚拟大观园与实体园林装置叠加，构建虚实交融的沉浸式观演体验。</p>
+        <p>项目通过物体识别与空间跟踪，让观众在实体场景前触发对应的数字化戏曲表演，并以“元剧场系统”支持跨场地排练、合成与预演，探索传统戏曲在数字媒介中的全新表达方式。</p>
       </section>
       <section className="practice-detail__body shell exhibition-detail__body">
         <p className="section-kicker exhibition-detail__kicker">Project Focus</p>
@@ -1014,6 +1017,48 @@ function Contact() {
   );
 }
 
+function ScrollMotion() {
+  React.useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return undefined;
+    const profile = document.querySelector('.about-content');
+    if (profile) {
+      gsap.set(profile.querySelector('.section-kicker'), { clearProps: 'opacity,visibility,transform' });
+      const profileItems = profile.querySelectorAll('.about-content > p:not(.section-kicker)');
+      gsap.set(profileItems, { y: 18, autoAlpha: 0 });
+      const revealProfile = () => {
+        gsap.to(profileItems, { y: 0, autoAlpha: 1, duration: 0.72, stagger: 0.22, ease: 'power2.out', overwrite: true });
+      };
+      const profileObserver = new IntersectionObserver(([entry]) => {
+        if (!entry.isIntersecting) return;
+        revealProfile();
+        profileObserver.disconnect();
+      }, { threshold: 0.1 });
+      profileObserver.observe(profile);
+      if (profile.getBoundingClientRect().top < window.innerHeight * 0.9) revealProfile();
+    }
+    const sections = document.querySelectorAll('.about, .projects, .discipline-section, .experience-wrap, .resume-section--education, .advantages, .contact-section');
+    const cleanups = [];
+    sections.forEach((section) => {
+      const items = Array.from(section.querySelectorAll('.section-kicker, h2, h3, .project-card, .discipline-card, .experience-card, .education-card, .advantage-card, .contact-info-item, .contact-actions'))
+        .filter((item) => !item.matches('.about-content > .section-kicker, .about-content > h2'));
+      if (section.matches('.about')) {
+        gsap.set(section.querySelector('.about-content > h2'), { clearProps: 'opacity,visibility,transform' });
+      }
+      if (!items.length) return;
+      gsap.set(items, { y: 28, autoAlpha: 0 });
+      const observer = new IntersectionObserver(([entry]) => {
+        if (!entry.isIntersecting) return;
+        gsap.to(items, { y: 0, autoAlpha: 1, duration: 0.8, stagger: 0.08, ease: 'power3.out', overwrite: true });
+        observer.disconnect();
+      }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+      observer.observe(section);
+      cleanups.push(() => observer.disconnect());
+    });
+    return () => { cleanups.forEach((cleanup) => cleanup()); gsap.killTweensOf('*'); };
+  }, []);
+  return null;
+}
+
 function App() {
   const practiceBySlug = React.useMemo(() => Object.fromEntries(disciplines.map((item) => [item.slug, item])), []);
   const [route, setRoute] = React.useState(() => window.location.hash.slice(1));
@@ -1029,6 +1074,7 @@ function App() {
 
   return (
     <>
+      <ScrollMotion />
       <Hero />
       <About />
       <DisciplineSection />

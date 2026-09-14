@@ -9,13 +9,13 @@
 }
 
 :root {
-  color-scheme: dark;
-  --bg: #050608;
-  --panel: rgba(14, 18, 24, 0.82);
-  --line: rgba(219, 232, 239, 0.16);
-  --text: #f4f7f5;
-  --muted: rgba(244, 247, 245, 0.68);
-  --soft: rgba(244, 247, 245, 0.46);
+  color-scheme: light;
+  --bg: #f5f4ef;
+  --panel: rgba(255, 255, 255, 0.9);
+  --line: rgba(23, 25, 27, 0.14);
+  --text: #17191b;
+  --muted: rgba(23, 25, 27, 0.7);
+  --soft: rgba(23, 25, 27, 0.52);
   --cyan: #78f7ff;
   --green: #c7ff3f;
   --max: 1700px;
@@ -37,7 +37,7 @@ body {
   font-family:
     Barlow, Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
     "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
-  background: #000;
+  background: var(--bg);
   color: var(--text);
 }
 
@@ -128,6 +128,69 @@ p {
 .hero {
   min-height: 100vh;
   background: #000;
+}
+
+/* The hero keeps its cinematic dark treatment; the portfolio content below it is light. */
+.hero ~ section,
+.hero ~ footer {
+  background: #050608;
+  color: #f4f7f5;
+}
+
+.hero ~ section .stat-card,
+.hero ~ section .advantage-card,
+.hero ~ section .experience-card {
+  background: rgba(14, 18, 24, 0.82);
+  border-color: rgba(219, 232, 239, 0.16);
+}
+
+.hero ~ section .stat-card strong,
+.hero ~ section .section-heading h2,
+.hero ~ section .about-content h2,
+.hero ~ section .contact-inner h2,
+.hero ~ section .experience-card h3,
+.hero ~ section .advantage-card h3 {
+  color: #f4f7f5;
+}
+
+.hero ~ section .about-content p,
+.hero ~ section .stat-card span,
+.hero ~ section .experience-card p,
+.hero ~ section .advantage-card p,
+.hero ~ section .section-heading p {
+  color: rgba(244, 247, 245, 0.68);
+}
+
+.hero ~ section .eyebrow,
+.hero ~ section .section-kicker {
+  color: var(--green);
+}
+
+/* Ensure no dark text remains in the dark portfolio sections. */
+.hero ~ section,
+.hero ~ section p,
+.hero ~ section h1,
+.hero ~ section h2,
+.hero ~ section h3,
+.hero ~ section h4,
+.hero ~ section li,
+.hero ~ section span,
+.hero ~ section strong,
+.hero ~ section em,
+.hero ~ section a,
+.hero ~ section button,
+.hero ~ footer,
+.hero ~ footer p,
+.hero ~ footer span,
+.hero ~ footer a {
+  color: #fff;
+}
+
+.hero ~ section .eyebrow,
+.hero ~ section .section-kicker,
+.hero ~ section [class*="label"],
+.hero ~ section [class*="tag"] {
+  color: var(--green);
 }
 
 .hero-video {
@@ -393,10 +456,17 @@ p {
 .stat-card,
 .advantage-card,
 .experience-card {
-  border: 1px solid var(--line);
+  border: 1px solid rgba(199, 255, 63, 0.52);
   border-radius: 28px;
   background: var(--panel);
   backdrop-filter: blur(24px);
+}
+
+.projects .project-card,
+.projects article,
+.contact-row a,
+.contact-row span {
+  border-color: rgba(199, 255, 63, 0.52) !important;
 }
 
 .stat-card {
@@ -586,6 +656,7 @@ p {
 }
 
 .education-card {
+  border: 1px solid rgba(199, 255, 63, 0.52);
   min-height: 390px;
   padding: 38px;
   border: 1px solid var(--line);
@@ -642,9 +713,126 @@ p {
 
 .experience-card p {
   margin-bottom: 0;
-  color: var(--muted);
+  color: #fff !important;
   font-size: 15px;
   line-height: 1.78;
+}
+
+.experience-wrap .career-timeline,
+.experience-wrap .career-timeline p,
+.experience-wrap .career-timeline span,
+.experience-wrap .career-timeline li {
+  color: #fff;
+}
+
+.experience-wrap,
+.experience-wrap h2,
+.experience-wrap h3,
+.experience-wrap h4,
+.experience-wrap p,
+.experience-wrap li,
+.experience-wrap time,
+.experience-wrap small,
+.experience-wrap .career-timeline__content,
+.experience-wrap .career-timeline__content * {
+  color: #f4f7f5 !important;
+}
+
+.experience-wrap .section-kicker,
+.experience-wrap .experience-card > span {
+  color: var(--green) !important;
+}
+
+.experience-wrap .experience-role {
+  color: var(--cyan) !important;
+}
+
+.experience-wrap .resume-entry:nth-child(n+2) .resume-entry__main > p:not(.resume-entry__role),
+.experience-wrap .resume-entry:nth-child(n+2) .resume-entry__main > ul,
+.experience-wrap .resume-entry:nth-child(n+2) .resume-entry__main > ul li {
+  color: rgba(244, 247, 245, 0.68) !important;
+}
+
+.experience-wrap .resume-entry:first-child .resume-entry__main > p:not(.resume-entry__role) {
+  color: rgba(244, 247, 245, 0.68) !important;
+}
+
+.experience-wrap .resume-entry:nth-child(5) .resume-entry__main > p:not(.resume-entry__role),
+.experience-wrap .resume-entry:nth-child(5) .resume-entry__main > ul,
+.experience-wrap .resume-entry:nth-child(5) .resume-entry__main > ul li {
+  color: #fff !important;
+}
+
+.experience-wrap .resume-entry:nth-child(4) .resume-entry__main > p:not(.resume-entry__role) {
+  color: rgba(244, 247, 245, 0.68) !important;
+}
+
+/* Specific override for the jewelry planning description. */
+.experience-wrap .resume-section .resume-list .resume-entry:nth-child(4) .resume-entry__main > p:not(.resume-entry__role) {
+  color: rgba(244, 247, 245, 0.68) !important;
+}
+
+.experience-wrap .resume-entry:nth-child(3) .resume-entry__main > p:not(.resume-entry__role),
+.experience-wrap .resume-entry:nth-child(3) .resume-entry__main > ul,
+.experience-wrap .resume-entry:nth-child(3) .resume-entry__main > ul li {
+  color: #fff !important;
+}
+
+.experience-wrap .resume-entry:nth-child(4) .resume-entry__main > ul,
+.experience-wrap .resume-entry:nth-child(4) .resume-entry__main > ul li {
+  color: #fff !important;
+}
+
+.experience-wrap .resume-entry__index,
+.experience-wrap .resume-entry__title time {
+  color: var(--green) !important;
+}
+
+.projects,
+.projects h2,
+.projects h3,
+.projects p,
+.projects li,
+.projects span,
+.projects a,
+.projects .section-heading,
+.projects .projects-title {
+  color: #f4f7f5 !important;
+}
+
+.projects .section-kicker,
+.projects [class*="label"],
+.projects [class*="tag"] {
+  color: var(--green) !important;
+}
+
+.contact,
+.contact h2,
+.contact h3,
+.contact p,
+.contact span,
+.contact a,
+.contact button,
+.contact .contact-inner {
+  color: #f4f7f5 !important;
+}
+
+.contact .section-kicker,
+.contact [class*="label"],
+.contact [class*="tag"] {
+  color: var(--green) !important;
+}
+
+.contact-info-item > span {
+  color: var(--green) !important;
+}
+
+.about .section-kicker {
+  color: var(--green) !important;
+}
+
+.about-content h2 {
+  color: #fff !important;
 }
 
 .experience-card .experience-role {
@@ -925,7 +1113,7 @@ p {
 .discipline-card__body > p:not(.discipline-card__english) {
   min-height: 52px;
   margin: 0 0 18px;
-  color: var(--muted);
+  color: rgba(244, 247, 245, 0.68) !important;
   font-size: 15px;
   line-height: 1.7;
 }
@@ -1178,15 +1366,69 @@ p {
 .exhibition-detail__content li { margin-bottom: 12px; }
 .exhibition-detail__content strong { color: #f4f7f5; }
 
+.exhibition-project-intro { margin-top: 0; padding: 58px 0 42px; border-top: 1px solid rgba(244,247,245,.14); }
+.exhibition-project-intro .section-kicker { margin-bottom: 24px; color: var(--green) !important; font-size: clamp(24px, 3vw, 42px); font-weight: 700; letter-spacing: .12em; }
+.exhibition-project-intro > p:not(.section-kicker) { max-width: none; margin: 0 0 18px; color: #fff !important; font-size: 18px; line-height: 1.8; }
+
 .practice-detail__hero-copy .section-kicker {
   margin-bottom: 18px;
 }
 
 .practice-detail__hero-copy h1 {
   margin: 0 0 20px;
+  color: #fff !important;
   font-size: clamp(56px, 8vw, 128px);
   font-weight: 600;
   line-height: 0.95;
+}
+
+.exhibition-detail .practice-detail__hero-copy h1,
+.exhibition-detail .detail-hero h1 {
+  color: #fff !important;
+}
+
+.practice-detail__body--commercial,
+.practice-detail__body--commercial p,
+.practice-detail__body--commercial h2,
+.practice-detail__body--commercial h3,
+.practice-detail__body--commercial h4,
+.practice-detail__body--commercial li,
+.practice-detail__body--commercial span,
+.practice-detail__body--commercial strong,
+.practice-detail__body--commercial em {
+  color: #fff !important;
+}
+
+.practice-detail__body--commercial .section-kicker,
+.practice-detail__body--commercial [class*="label"],
+.practice-detail__body--commercial [class*="tag"] {
+  color: var(--green) !important;
+}
+
+.practice-detail,
+.practice-detail h1,
+.practice-detail h2,
+.practice-detail h3,
+.practice-detail h4,
+.practice-detail p,
+.practice-detail li,
+.practice-detail dt,
+.practice-detail dd,
+.practice-detail figcaption,
+.practice-detail span,
+.practice-detail strong {
+  color: #fff !important;
+}
+
+.practice-detail .section-kicker,
+.practice-detail [class*="label"],
+.practice-detail [class*="tag"],
+.practice-detail .detail-back {
+  color: var(--green) !important;
+}
+
+.practice-detail .practice-detail__hero-copy > p:last-child {
+  color: rgba(244, 247, 245, 0.68) !important;
 }
 
 .practice-detail__hero-copy > p:last-child {
@@ -1213,7 +1455,7 @@ p {
 .ecology-project-images figure:first-child img { height: 280px; }
 .ecology-project-images figcaption { padding: 9px 11px 10px; color: rgba(244,247,245,.62); font-size: .68rem; letter-spacing: .08em; text-transform: uppercase; }
 .ecology-project-statement { grid-column: 1 / -1; margin-top: 18px; padding: 28px 0 4px; border-top: 1px solid rgba(244,247,245,.14); }
-.ecology-project-statement > span { display: block; margin-bottom: 14px; color: var(--green); font-size: 11px; letter-spacing: .14em; }
+.ecology-project-statement > span { display: block; margin-bottom: 18px; color: var(--green) !important; font-size: clamp(18px, 2vw, 30px); font-weight: 700; letter-spacing: .12em; }
 .ecology-project-statement p { max-width: 980px; margin: 0; color: rgba(244,247,245,.8); font-size: clamp(18px, 1.7vw, 25px); line-height: 1.7; }
 .ecology-project-focus .project-facts { margin-top: 0; }
 .ecology-project-focus .project-facts > div { grid-template-columns: 112px minmax(0,1fr); gap: 18px; padding: 22px 0; }
@@ -1228,7 +1470,7 @@ p {
 
 .sanjing-design { margin-top: 88px; padding-top: 36px; border-top: 1px solid rgba(199,214,222,.2); }
 .sanjing-design__heading { display:flex; align-items:baseline; justify-content:space-between; gap:24px; margin-bottom:28px; }
-.sanjing-design__heading span { color: var(--green); font-size:12px; letter-spacing:.18em; }
+.sanjing-design__heading span { display:block; margin-bottom:18px; color:var(--green) !important; font-size:clamp(18px, 2vw, 30px); font-weight:700; letter-spacing:.12em; }
 .sanjing-design__heading p { margin:0; color:rgba(244,247,245,.58); font-size:14px; }
 .sanjing-design__grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; }
 .sanjing-design__grid figure { margin:0; overflow:hidden; border:1px solid rgba(199,214,222,.16); background:#fff; }
@@ -1261,6 +1503,8 @@ p {
 .project-facts { display:grid; gap:0; margin-top:58px; border-top:1px solid rgba(219,232,239,.18); }
 .project-facts > div { display:grid; grid-template-columns:180px minmax(0,1fr); gap:34px; padding:23px 0; border-bottom:1px solid rgba(219,232,239,.14); }
 .project-facts span { color:var(--green); font-size:12px; font-weight:700; letter-spacing:.1em; }
+.project-facts span,
+.exhibition-detail__row > strong { color: var(--green) !important; }
 .project-facts strong { color:rgba(244,247,245,.86); font-size:17px; font-weight:500; line-height:1.7; }
 .graphic-breakdown { display: grid; gap: 2rem; }
 .graphic-breakdown > p { max-width: 620px; color: var(--muted); line-height: 1.8; }
