@@ -2345,9 +2345,19 @@ p {
 }
 
 .rebirth-detail {
+  --text: #fff;
+  --muted: #fff;
+  --soft: #fff;
   min-height: 100vh;
   background: #050608;
   color: var(--text);
+}
+
+.rebirth-detail .detail-back,
+.rebirth-detail .detail-hero__synopsis > p:last-child,
+.rebirth-detail .rebirth-facts strong,
+.rebirth-detail .still-card figcaption {
+  color: #fff;
 }
 
 .detail-header {
