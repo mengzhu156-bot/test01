@@ -991,7 +991,7 @@ function Contact() {
           </div>
           <div className="contact-info-item">
             <span>Availability</span>
-            <strong>上海｜全职工作</strong>
+            <strong>全职工作</strong>
           </div>
           <a className="contact-info-item contact-info-item--link" href="/resume.pdf" download>
             <span>Download Resume</span>
@@ -1010,7 +1010,7 @@ function Contact() {
         </div>
         <div className="footer-meta">
           <span>孟竹 Meng Zhu</span>
-          <span>Shanghai · AI Visual Design · Content Creative Planning</span>
+          <span>AI Visual Design · Content Creative Planning</span>
         </div>
       </div>
     </footer>

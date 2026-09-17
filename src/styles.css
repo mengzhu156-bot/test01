@@ -747,39 +747,8 @@ p {
   color: var(--cyan) !important;
 }
 
-.experience-wrap .resume-entry:nth-child(n+2) .resume-entry__main > p:not(.resume-entry__role),
-.experience-wrap .resume-entry:nth-child(n+2) .resume-entry__main > ul,
-.experience-wrap .resume-entry:nth-child(n+2) .resume-entry__main > ul li {
-  color: rgba(244, 247, 245, 0.68) !important;
-}
-
-.experience-wrap .resume-entry:first-child .resume-entry__main > p:not(.resume-entry__role) {
-  color: rgba(244, 247, 245, 0.68) !important;
-}
-
-.experience-wrap .resume-entry:nth-child(5) .resume-entry__main > p:not(.resume-entry__role),
-.experience-wrap .resume-entry:nth-child(5) .resume-entry__main > ul,
-.experience-wrap .resume-entry:nth-child(5) .resume-entry__main > ul li {
-  color: #fff !important;
-}
-
-.experience-wrap .resume-entry:nth-child(4) .resume-entry__main > p:not(.resume-entry__role) {
-  color: rgba(244, 247, 245, 0.68) !important;
-}
-
-/* Specific override for the jewelry planning description. */
-.experience-wrap .resume-section .resume-list .resume-entry:nth-child(4) .resume-entry__main > p:not(.resume-entry__role) {
-  color: rgba(244, 247, 245, 0.68) !important;
-}
-
-.experience-wrap .resume-entry:nth-child(3) .resume-entry__main > p:not(.resume-entry__role),
-.experience-wrap .resume-entry:nth-child(3) .resume-entry__main > ul,
-.experience-wrap .resume-entry:nth-child(3) .resume-entry__main > ul li {
-  color: #fff !important;
-}
-
-.experience-wrap .resume-entry:nth-child(4) .resume-entry__main > ul,
-.experience-wrap .resume-entry:nth-child(4) .resume-entry__main > ul li {
+/* Keep all work-experience copy fully white. */
+.experience-wrap .resume-section[aria-labelledby="work-experience-title"] :is(h2, h3, p:not(.section-kicker), li) {
   color: #fff !important;
 }
 
